@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    margin-top: 240px;
+    justify-content: center;
+    z-index: 1000;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .container {
+      /* background-color: blue; */
+      margin-top: 150px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .container {
+        /* background-color: red; */
+        margin-top: 200px;
+      }
+  }

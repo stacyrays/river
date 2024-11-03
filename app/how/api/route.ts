@@ -19,3 +19,15 @@ export async function POST(request: Request) {
         status: 201
     })
 }
+
+export async function PUT(request: Request) {
+    const testimonial = await request.json();
+    const index = testimonials.findIndex(t => t.id === testimonial.id);
+    testimonials[index] = testimonial;
+    return new Response(JSON.stringify(testimonial), {
+        headers: {
+            "Content-Type": "application/json", 
+        },
+        status: 200
+    })
+}

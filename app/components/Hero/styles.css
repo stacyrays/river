@@ -1,0 +1,14 @@
+.carousel-item {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1000ms ease-in;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.inactive {
+    transition: opacity 5000ms ease-out;
+  }
