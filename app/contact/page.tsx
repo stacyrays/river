@@ -3,26 +3,58 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
-import { useContactForm } from '../hooks/useContactForm';
+import useContactForm from '../hooks/useContactForm';
+import { submitData } from './SubmitData';
 
 export type ContactValues = {
     name: string;
     email: string;
-    comments: string;
+    message: string;
 }
 
 export default function Contact() {
     const initialValues: ContactValues = {
         name: '',
         email: '',
-        comments: ''
+        message: ''
     }
 
     const { values, handleChange, onReset, handleSubmit} = useContactForm({initialValues});
 
-    const submitForm = (formValues: ContactValues) => {
+    const submitForm = async (formValues: ContactValues) => {
         console.log('submit happens');
         console.log('formValues', formValues)
+        // submitData(formValues);
+        
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxHUVN2ZX4irCLU7ljjeItfc1-9Uzl3gr0oMkjKyyyULRpRcwfj7J4VWaxHN2CFOFQ/exec', {
+                redirect: "follow",
+                method: 'POST',
+                mode: 'no-cors',
+                // cache: "no-cache",
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8",
+                  },
+                // body: JSON.stringify(formValues),
+                // @ts-ignore
+                body: JSON.stringify(formValues),
+                // body: {name: 'Jon', email: 'jon@gmail.com', message: 'ehyyy'},
+            });
+            // console.log('response', response.json());
+            // const responseJson = await response.json();
+            // console.log('responseJson', responseJson);
+        
+            if (!response.ok) {
+                throw new Error('Failed to submit data');
+            }
+        
+            return response;
+        } catch (error) {
+            console.log("error", error);
+            throw new Error('Failed to submit data');
+            // console.error(error); // Handle error
+        }
+        
     }
     return (
         <div className="w-screen flex flex-col items-center justify-center">
@@ -34,10 +66,10 @@ export default function Contact() {
                     <TextField id="standard-basic" name="email" label="Email" variant="standard" value={values.email} onChange={handleChange} />
                     <TextField
                         id="outlined-textarea"
-                        name="comments"
-                        label="Comments"
-                        placeholder="Enter comments"
-                        value={values.comments}
+                        name="message"
+                        label="Message"
+                        placeholder="Enter message"
+                        value={values.message}
                         onChange={handleChange}
                         multiline
                     />

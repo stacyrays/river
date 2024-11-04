@@ -1,12 +1,15 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { ContactValues } from '../contact/page';
 
-export const useContactForm = ({initialValues}: {initialValues: ContactValues}) => {
+const useContactForm = ({initialValues}: {initialValues: ContactValues}) => {
     const [values, setValues] = useState(initialValues);
+    console.log('values', values);
 
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         console.log('handleChange happens');
         const {name, value} = e.target;
+        console.log('name', name);
+        console.log('value', value);
         setValues({
             ...values,
             [name]: value,
@@ -21,6 +24,16 @@ export const useContactForm = ({initialValues}: {initialValues: ContactValues}) 
         event.preventDefault();
         callback(values);
     }
+    // const handleSubmit = async (e: React.FormEvent) => {
+    //     e.preventDefault();
+    
+    //     try {
+    //       const response = await axios.post('YOUR_GOOGLE_APPS_SCRIPT_URL', formData);
+    //       console.log(response.data); // Handle success
+    //     } catch (error) {
+    //       console.error(error); // Handle error
+    //     }
+    //   };
 
     return {
         values,
@@ -29,3 +42,5 @@ export const useContactForm = ({initialValues}: {initialValues: ContactValues}) 
         handleSubmit
     }
 }
+
+export default useContactForm;

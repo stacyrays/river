@@ -1,5 +1,5 @@
 import Hero from "./components/Hero/page";
-import HabitsContainer from "./components/HabitsContainer/page";
+import HabitsContainer from "./components/Habits/page";
 
 export default function Home() {
 

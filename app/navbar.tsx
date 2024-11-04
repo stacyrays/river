@@ -6,6 +6,7 @@ import RiverLogo from '../public/images/svgs/RiverLogo';
 
 const navLinks = [
     {name: "How It Works", href: "/how"},
+    {name: "About", href: "/about"},
     {name: "Services", href: "/services"},
     {name: "Contact", href: "/contact"}
   ]

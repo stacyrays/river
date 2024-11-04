@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import Image from "next/image";
 import Link from 'next/link'
 import './styles.css';
 
@@ -30,7 +29,7 @@ const Hero: React.FC<CarouselProps> = ({items, interval = 5000}) => {
                         </h1>
                     </div>
                     <Link
-                        className="rounded-full border border-solid border-black/[.08] bg-amber-500 light:border-white/[.145] transition-colors flex items-center justify-center hover:bg-amber-600 hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+                        className="rounded-full bg-amber-500 transition-colors flex items-center justify-center hover:bg-amber-600 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-44"
                         href="/how"
                     >
                         How it works
