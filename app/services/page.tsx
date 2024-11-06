@@ -1,7 +1,24 @@
 import * as React from 'react';
 import {styles} from '../helpers/tailwindstyles';
 
-export default async function Services() {
+interface Post {
+    _id: string;
+    name: string;
+    date: string;
+    description: string;
+    image: string;
+    src: string;
+    width: string;
+    height: string;
+    title: string;
+ }
+
+ type Posts = Post[];
+
+const Services: React.FC<Posts> = async () => {
+    const response = await fetch('http://localhost:3000/api/blog');
+    const posts: Posts = await response.json();
+    console.log('posts', posts)
     return (
         <div className={styles.componentContainer}>
             <div className={styles.subComponentContainer}>
@@ -19,7 +36,21 @@ export default async function Services() {
                         referrerPolicy="strict-origin-when-cross-origin"
                         allowFullScreen></iframe>
                 </div>
+                <div>
+                    <h2>Blog Posts</h2>
+                    <ul>
+                        {posts?.map((post: Post) => (
+                            <li key={post._id}>
+                                <h2>{post.title}</h2>
+                                <h3>{post.description}</h3>
+                                <p>{post.src}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
 }
+
+export default Services;
