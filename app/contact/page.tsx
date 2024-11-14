@@ -19,6 +19,17 @@ export default function Contact() {
         message: ''
     }
 
+    React.useEffect(() => {
+        let response;
+        let contacts;
+        (async () => {
+            response = await fetch('http://localhost:3000/api/contacts');
+            contacts = await response.json();
+            console.log('contacts', contacts)
+        }
+        )();
+    }, []);
+
     const { values, handleChange, onReset, handleSubmit} = useContactForm({initialValues});
 
     const submitForm = async (formValues: ContactValues) => {
