@@ -3,7 +3,6 @@ import { ContactValues } from '../contact/page';
 
 const useContactForm = ({initialValues}: {initialValues: ContactValues}) => {
     const [values, setValues] = useState(initialValues);
-    console.log('values', values);
 
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         console.log('handleChange happens');

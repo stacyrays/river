@@ -1,77 +1,59 @@
 'use client'
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import Alert from '@mui/material/Alert';
-import useContactForm from '../hooks/useContactForm';
-import { submitData } from './SubmitData';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { z } from "zod";
 
-export type ContactValues = {
-    name: string;
-    email: string;
-    message: string;
-    date: Date;
-}
+const contactFormSchema = z.object({
+    name: z.string().min(1),
+    email: z.string().min(1).email(),
+    message: z.string().min(1),
+    // date: z.date().optional(),
+});
+
+export type ContactValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
-    const [status, setStatus] = React.useState<"success" | "error" | "info" | "warning">('info');
 
-    const initialValues: ContactValues = {
-        name: '',
-        email: '',
-        message: '',
-        date: new Date(),
-    }
+    const {
+        register,
+        handleSubmit,
+        setError,
+        formState: { errors, isSubmitting },
+      } = useForm<ContactValues>({
+        defaultValues: {
+          email: "test@email.com",
+        },
+        resolver: zodResolver(contactFormSchema),
+      });
 
-    React.useEffect(() => {
-        let response;
-        let contacts;
-        (async () => {
-            response = await fetch('http://localhost:3000/api/contacts');
-            contacts = await response.json();
-            console.log('contacts', contacts)
-        }
-        )();
-    }, []);
-
-    const { values, handleChange, onReset, handleSubmit} = useContactForm({initialValues});
-
-    const submitForm = async (formValues: ContactValues) => {
-        console.log('formValues', formValues)
-        if (!formValues.name || !formValues.email || !formValues.message) {
-            setStatus('error');
-            return;
-        }
-        
+    const onSubmit: SubmitHandler<ContactValues> = async (data) => {
+        // const result = contactFormSchema.safeParse(data);
         try {
+            const dataToSend = {
+                ...data,
+                date: new Date(),
+            }
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             const response = await fetch('http://localhost:3000/api/contacts', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
-                  },
-                body: JSON.stringify(formValues),
+                },
+                body: JSON.stringify(dataToSend),
             });
-            console.log('response', response.json());
-            // const responseJson = await response.json();
-            // console.log('responseJson', responseJson);
-        
-            if (!response.ok) {
-                throw new Error('Failed to submit data');
-            }
-            onReset();
-            setStatus('success');
             return response;
         } catch (error) {
-            setStatus('error');
-            throw new Error('Failed to submit data');
-            // console.error(error); // Handle error
+            console.log('error', error);
+            setError("root", {
+                message: "This email is already taken",
+            });
         }
-        
-    }
+      };
+
     return (
         <div className="w-screen flex flex-col items-center justify-center">
-            {status === 'success' && (
+            {/* {status === 'success' && (
                 <Alert
                     variant="filled"
                     severity={status}
@@ -96,35 +78,25 @@ export default function Contact() {
                 >
                     Form submission failed. All fields required.
                 </Alert>
-            )}
+            )} */}
             <div className="w-1/2 mt-20">
-                <form onSubmit={handleSubmit(submitForm)}>
-                    <Stack spacing={4}>
-                        {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-                        <TextField id="standard-basic" name="name" label="Name" variant="standard" value={values.name} onChange={handleChange} />
-                        <TextField id="standard-basic" name="email" label="Email" variant="standard" value={values.email} onChange={handleChange} />
-                        <TextField
-                            id="outlined-textarea"
-                            name="message"
-                            label="Message"
-                            placeholder="Enter message"
-                            value={values.message}
-                            onChange={handleChange}
-                            multiline
-                        />
-                        {/* <TextField id="filled-basic" label="Name" variant="filled" /> */}
-                        <div className="flex items-center justify-end">
-                            <Button type="submit" variant="contained" sx={{
-                                width: '140px',
-                                backgroundColor: 'rgb(245, 158, 11)',
-                                borderRadius: 12,
-                                boxShadow: 'none', 
-                                "&:hover": {
-                                    bgcolor: "#D97708",
-                                },
-                            }}>Say Hello</Button>
-                        </div>
-                </Stack>
+                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center justify-center'>
+                    <input {...register("name")} type="text" placeholder="Name" className='bg-[#EFEFEF] rounded-lg p-2 mb-3' />
+                    {errors.name && (
+                        <div className="text-red-500">{errors.name.message}</div>
+                    )}
+                    <input {...register("email")} type="text" placeholder="Email" className='bg-[#EFEFEF] rounded-lg p-2 mb-3' />
+                        {errors.email && (
+                            <div className="text-red-500">{errors.email.message}</div>
+                        )}
+                    <input {...register("message")} type="text" placeholder="Message" className='bg-[#EFEFEF] rounded-lg p-2 mb-3' />
+                    {errors.message && (
+                        <div className="text-red-500">{errors.message.message}</div>
+                    )}
+                    <button disabled={isSubmitting} type="submit" className="rounded-full bg-amber-500 transition-colors flex items-center justify-center hover:bg-amber-600 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-44">
+                        {isSubmitting ? "Loading..." : "Submit"}
+                    </button>
+                    {errors.root && <div className="text-red-500">{errors.root.message}</div>}
             </form>
             </div>
         </div>
