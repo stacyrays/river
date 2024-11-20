@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import {styles} from '../helpers/tailwindstyles';
 
@@ -15,10 +16,19 @@ interface Post {
 
  type Posts = Post[];
 
-const Services: React.FC<Posts> = async () => {
-    const response = await fetch('http://localhost:3000/api/blog');
-    const posts: Posts = await response.json();
-    console.log('posts', posts)
+const Services: React.FC = () => {
+    const [posts, setPosts] = React.useState<Posts>([]);
+
+    React.useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch('http://localhost:3000/api/blog');
+            const posts: Posts = await response.json();
+            console.log('posts', posts);
+            setPosts(posts);
+        };
+
+        fetchPosts();
+    }, []);
     return (
         <div className={styles.componentContainer}>
             <div className={styles.subComponentContainer}>

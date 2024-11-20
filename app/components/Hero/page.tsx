@@ -25,7 +25,7 @@ const Hero: React.FC<CarouselProps> = ({items, interval = 5000}) => {
         <div className="flex w-screen justify-left">
             <div className="flex flex-row hero-content-container w-screen">
                 <div style={{zIndex: '1000'}} className="flex flex-col xl:basis-1/3 lg:basis-1/3 md:basis-1/2 sm:basis-1/2 xs:basis-1/2 mt-16 lg:mx-20 md:mx-20 sm:mx-10 xs:mx-10">
-                    <div className="list-inside list-decimal lg:text-5xl md:text-5xl sm:text-4xl xs:text-3xl font-bold sm:text-left font-[family-name:var(--font-geist-mono)] mb-5 text-[#171717]">
+                    <div className="list-inside list-decimal lg:text-5xl md:text-5xl sm:text-4xl xs:text-3xl font-bold sm:text-left font-[family-name:var(--font-geist-mono)] mb-5 text-[#065d9b]">
                         <h1>
                             You deserve to be free from unwanted habits
                         </h1>

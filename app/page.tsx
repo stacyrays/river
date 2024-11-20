@@ -1,8 +1,9 @@
+'use client'
 import Hero from "./components/Hero/page";
 import HabitsContainer from "./components/Habits/page";
 
-export default function Home() {
 
+export default function Home() {
   const items = [
     {
       title: "You deserve to be free from unwanted habits",
