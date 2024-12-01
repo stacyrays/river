@@ -24,6 +24,7 @@ const Services: React.FC = () => {
             const response = await fetch('http://localhost:3000/api/blog');
             const posts: Posts = await response.json();
             setPosts(posts);
+            console.log('posts', posts);
         };
 
         fetchPosts();

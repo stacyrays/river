@@ -3,23 +3,41 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import './styles.css';
 
-interface CarouselProps {
-    items: any[]; // Replace 'any' with the type of your items
-    interval?: number; // Time in milliseconds between transitions
-}
-
 //2px 2px 4px rgba(255, 255, 255, 0.5)
 
-const Hero: React.FC<CarouselProps> = ({items, interval = 5000}) => {
+// const Hero: React.FC<CarouselProps> = ({items, interval = 5000}) => {
+export default function Hero() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const items = [
+        {
+          title: "You deserve to be free from unwanted habits",
+          image: "bg-[url('/images/hero1.jpg')]",
+          link: "/how",
+        },
+        {
+          title: "You deserve to be free from unwanted habits",
+          image: "bg-[url('/images/hero2.jpg')]",
+          link: "/how",
+        },
+        {
+          title: "You deserve to be free from unwanted habits",
+          image: "bg-[url('/images/hero3.jpg')]",
+          link: "/how",
+        },
+        {
+          title: "You deserve to be free from unwanted habits",
+          image: "bg-[url('/images/hero4.jpg')]",
+          link: "/how",
+        },
+      ]
 
     useEffect(() => {
         const timer = setInterval(() => {
           setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
-        }, interval);
+        }, 5000);
     
         return () => clearInterval(timer);
-      }, [items, interval]);
+      }, [items, 5000]);
 
     return (
         <div className="flex w-screen justify-left">
@@ -51,4 +69,4 @@ const Hero: React.FC<CarouselProps> = ({items, interval = 5000}) => {
     );
 };
 
-export default Hero;
+// export default Hero;

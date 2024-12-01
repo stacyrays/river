@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const getIsOpen = useMenuStore((state: any) => state.isOpen);
+  const getIsOpen = useMenuStore((state) => state.isOpen);
   const isOpen = getIsOpen ? "block" : "none";
   const pathname = usePathname();
   const isHome = pathname === '/';

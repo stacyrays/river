@@ -13,7 +13,7 @@ export const navLinks = [
   ]
 
 const Navbar = () => {
-    const setIsOpen = useMenuStore((state: any) => state.setIsOpen);
+    const setIsOpen = useMenuStore((state) => state.setIsOpen);
 
     const pathname = usePathname();
     

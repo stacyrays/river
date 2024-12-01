@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { ContactValues } from '../contact/page';
 
 const useContactForm = ({initialValues}: {initialValues: ContactValues}) => {

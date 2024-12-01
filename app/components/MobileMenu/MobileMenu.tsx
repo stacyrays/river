@@ -5,7 +5,7 @@ import useMenuStore from '../../store/MenuProvider';
 
 export default function MobileMenu({isOpen}: Readonly<{isOpen: string}>) {
     const pathname = usePathname();
-    const setIsOpen = useMenuStore((state: any) => state.setIsOpen);
+    const setIsOpen = useMenuStore((state) => state.setIsOpen);
     return (
         <div style={{display: `${isOpen}`, zIndex: 10000, position: 'absolute', left: 0, top: 0, height: '100vh', width: '100vw'}} className='flex items-center justify-center bg-sky-500'>
             <button onClick={setIsOpen} className='text-white'>x close</button>

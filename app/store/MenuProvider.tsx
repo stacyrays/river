@@ -1,9 +1,18 @@
 "use client";
 import { create } from "zustand";
 
-const useMenuStore = create((set) => ({
+
+interface MenuState {
+  isOpen: boolean;
+}
+
+interface MenuActions {
+  setIsOpen: () => void;
+}
+
+const useMenuStore = create<MenuState & MenuActions>((set) => ({
   isOpen: false,
-  setIsOpen: () => set((state: any) => ({ isOpen: !state.isOpen })),
+  setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
   
 export default useMenuStore; 
