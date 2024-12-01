@@ -11,22 +11,22 @@ export default function Hero() {
     const items = [
         {
           title: "You deserve to be free from unwanted habits",
-          image: "bg-[url('/images/hero1.jpg')]",
+          image: 'bg-[url("/images/hero1.jpg")]',
           link: "/how",
         },
         {
           title: "You deserve to be free from unwanted habits",
-          image: "bg-[url('/images/hero2.jpg')]",
+          image: 'bg-[url("/images/hero2.jpg")]',
           link: "/how",
         },
         {
           title: "You deserve to be free from unwanted habits",
-          image: "bg-[url('/images/hero3.jpg')]",
+          image: 'bg-[url("/images/hero3.jpg")]',
           link: "/how",
         },
         {
           title: "You deserve to be free from unwanted habits",
-          image: "bg-[url('/images/hero4.jpg')]",
+          image: 'bg-[url("/images/hero4.jpg")]',
           link: "/how",
         },
       ]
