@@ -10,7 +10,6 @@ interface HabitsItemProps {
 }
 
 const HabitsItem: React.FC<HabitsItemProps> = ({icon, title, description}) => {
-    console.log(icon, title, description);
     const habitIcon = () => {
         switch (icon) {
             case 'SmokingIcon':

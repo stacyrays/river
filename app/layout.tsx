@@ -7,6 +7,8 @@ import "./globals.css";
 import Navbar from "./components/NavBar/navbar";
 import Footer from "./footer";
 import useMenuStore from "./store/MenuProvider";
+import MobileMenu from './components/MobileMenu/MobileMenu';
+import { usePathname } from 'next/navigation';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const getIsOpen = useMenuStore((state: any) => state.isOpen);
-  const setIsOpen = useMenuStore((state: any) => state.setIsOpen);
   const isOpen = getIsOpen ? "block" : "none";
-  console.log('isOpen', isOpen);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   return (
     <html lang="en">
       <body
@@ -36,10 +38,13 @@ export default function RootLayout({
       >
         <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
-              <div style={{display: `${isOpen}`, zIndex: 10000, position: 'absolute', left: 0, top: 0, height: '100vh', width: '100vw', backgroundColor: 'red'}} onClick={setIsOpen}>MENU!!!!</div>
+              {/* <div style={{display: `${isOpen}`, zIndex: 10000, position: 'absolute', left: 0, top: 0, height: '100vh', width: '100vw'}} className='flex items-center justify-center bg-sky-500'>
+                <button onClick={setIsOpen} className='text-white'>x close</button>
+              </div> */}
+              <MobileMenu isOpen={isOpen} />
               <Navbar />
               {children}
-              <Footer />
+              {!isHome && <Footer />}
             </ThemeProvider>
         </AppRouterCacheProvider>
         

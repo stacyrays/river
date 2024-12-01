@@ -23,7 +23,6 @@ const Services: React.FC = () => {
         const fetchPosts = async () => {
             const response = await fetch('http://localhost:3000/api/blog');
             const posts: Posts = await response.json();
-            console.log('posts', posts);
             setPosts(posts);
         };
 
@@ -37,8 +36,8 @@ const Services: React.FC = () => {
                 <div className={styles.innerContent}>
                     <h2 className={styles.h3}>Favorite Meditation Videos</h2>
                     <iframe 
-                        width="560"
-                        height="315"
+                        // width="560"
+                        // height="315"
                         src="https://www.youtube.com/embed/W19PdslW7iw?si=Q7YMXo-XGkDUaapx"
                         title="YouTube video player"
                         frameBorder="0"

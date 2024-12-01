@@ -5,10 +5,7 @@ const useContactForm = ({initialValues}: {initialValues: ContactValues}) => {
     const [values, setValues] = useState(initialValues);
 
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-        console.log('handleChange happens');
         const {name, value} = e.target;
-        console.log('name', name);
-        console.log('value', value);
         setValues({
             ...values,
             [name]: value,

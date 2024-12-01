@@ -10,7 +10,6 @@ export default async function About() {
     });
     const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`);
     const data = await response.json();
-    console.log('data', data)
 
     return (
         <div className={styles.componentContainer}>

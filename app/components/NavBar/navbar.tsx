@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import RiverLogo from '../../../public/images/svgs/RiverLogo';
 import useMenuStore from '../../store/MenuProvider';
 
-const navLinks = [
+export const navLinks = [
     {name: "How It Works", href: "/how"},
     {name: "About", href: "/about"},
     {name: "Services", href: "/services"},
@@ -13,9 +13,6 @@ const navLinks = [
   ]
 
 const Navbar = () => {
-   // const { isOpen, setIsOpen } = useMenuOpen()();
-    // const { isOpen, setIsOpen } = menuState();
-    // console.log('isOpen', isOpen);
     const setIsOpen = useMenuStore((state: any) => state.setIsOpen);
 
     const pathname = usePathname();
