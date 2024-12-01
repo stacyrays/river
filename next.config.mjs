@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // Disable default image optimization
   },
-  assetPrefix: isProd ? '/river/' : '',
-  basePath: isProd ? '/river' : '',
+  assetPrefix: isProd ? 'https://stacyrays.github.io/river/' : '',
+  basePath: isProd ? 'https://stacyrays.github.io/river' : '',
   output: 'export'
 };
 
