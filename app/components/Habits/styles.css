@@ -5,3 +5,29 @@
   justify-content: center;
   z-index: 1000;
 }
+
+.habit-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .habit-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    position: absolute;
+    display: flex;
+    margin-top: 340px;
+    justify-content: center;
+    z-index: 1000;
+  }
+}

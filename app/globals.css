@@ -17,6 +17,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  margin: 0px;
+  padding: 0px;
 }
 
 @layer utilities {

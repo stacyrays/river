@@ -23,7 +23,7 @@ const HabitsContainer = () => {
     return (
         <>
             <div className='container'>
-                <div className="flex xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row hero-content-container w-screen">
+                <div className="habit-items">
                     {habitItems.map((item) => (<HabitsItem icon={item.icon} title={item.title} description={item.description} key={item.title} />))}
                 </div>
             </div>

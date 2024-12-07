@@ -1,0 +1,28 @@
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 60px;
+    background-color: rgb(14, 165, 233);
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        background-color: rgb(14, 165, 233);
+      }
+  }
+  
+@media only screen and (min-width: 1024px) {
+    .container {
+        /* background-color: red; */
+        margin-top: 280px;
+    }
+}
