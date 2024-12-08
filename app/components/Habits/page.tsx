@@ -22,8 +22,8 @@ const HabitsContainer = () => {
     ]
     return (
         <>
-            <div className='container'>
-                <h2 className="hph2">River's treatments helps squash habits like these:</h2>
+            <div className="container">
+                <h2 className="hph2">Our treatment process helps squash unhealthy habits like these:</h2>
                 <div className="habit-items">
                     {habitItems.map((item) => (<HabitsItem icon={item.icon} title={item.title} description={item.description} key={item.title} />))}
                 </div>
