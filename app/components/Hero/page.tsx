@@ -40,8 +40,8 @@ export default function Hero() {
       }, [items, 5000]);
 
     return (
-        <div className="flex w-screen justify-left">
-            <div className='carousel'>
+        <div className="flex flex-col w-screen justify-left">
+            {/* <div className='carousel'>
                 {items.map((item, index) => (
                     <div
                         key={index}
@@ -51,10 +51,12 @@ export default function Hero() {
                         <div style={{position: 'absolute', zIndex: 1}} className={`flex w-screen justify-left ${items[index].image} w-[500px] h-[700px] bg-no-repeat bg-center bg-cover`} />
                     </div>
                 ))}
-            </div>
+            </div> */}
+            <div className='hero-background' />
+
             <div className="flex flex-row hero-content-container w-screen">
-                <div className="hero-left-content">
-                    <h1>
+                <div className="hero-bottom-content">
+                    <h1 className='heroh1'>
                         You deserve to be free from unwanted habits
                     </h1>
                     <Link
