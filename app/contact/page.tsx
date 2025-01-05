@@ -1,32 +1,32 @@
 'use client'
 import * as React from 'react';
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { SubmitHandler, useForm } from "react-hook-form";
+// import { z } from "zod";
 import {styles} from '../helpers/tailwindstyles';
 
-const contactFormSchema = z.object({
-    name: z.string().min(1),
-    email: z.string().min(1).email(),
-    message: z.string().min(1),
-    // date: z.date().optional(),
-});
+// const contactFormSchema = z.object({
+//     name: z.string().min(1),
+//     email: z.string().min(1).email(),
+//     message: z.string().min(1),
+//     // date: z.date().optional(),
+// });
 
-export type ContactValues = z.infer<typeof contactFormSchema>;
+// export type ContactValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
 
-    const {
-        register,
-        handleSubmit,
-        setError,
-        formState: { errors, isSubmitting },
-      } = useForm<ContactValues>({
-        defaultValues: {
-          email: "test@email.com",
-        },
-        resolver: zodResolver(contactFormSchema),
-      });
+    // const {
+    //     register,
+    //     handleSubmit,
+    //     setError,
+    //     formState: { errors, isSubmitting },
+    //   } = useForm<ContactValues>({
+    //     defaultValues: {
+    //       email: "test@email.com",
+    //     },
+    //     resolver: zodResolver(contactFormSchema),
+    //   });
 
     // const onSubmit: SubmitHandler<ContactValues> = async (data) => {
     //     // const result = contactFormSchema.safeParse(data);
