@@ -1,7 +1,7 @@
 {
+  "homepage": "https://rivernlp.com",
   "name": "river",
   "version": "0.1.0",
-  "homepage": "https://stacyrays.github.io/river",
   "private": true,
   "scripts": {
     "dev": "next dev",
