@@ -57,7 +57,7 @@ export default function Hero() {
             <div className="flex flex-row hero-content-container w-screen">
                 <div className="hero-bottom-content">
                     <h1 className='heroh1'>
-                        You deserve to be free from unwanted habits
+                        Transform Your Life with the Power of Your Mind
                     </h1>
                     <Link
                         className="rounded-full bg-amber-500 transition-colors flex items-center justify-center hover:bg-amber-600 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-44 text-white"

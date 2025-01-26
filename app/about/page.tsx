@@ -11,7 +11,7 @@ export default async function About() {
         <div className={styles.componentContainer}>
             <div className={styles.subComponentContainer}>
                 <h1 className={styles.h1}>Meet River</h1>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.</p>
+                <p>I am a certified Hypnotherapist and NLP practitioner specializing in overcoming unwanted habits and anxieties. These tools released me from years of depression and debilitating anxiety, improved my focus, creativity, productivity, and outlook on life. It brings me great joy to help others improve their well being and change their lives for the better. </p>
                 <div className={styles.innerContent}>
                     <h2 className="text-xl font-bold mb-2">NASA Astronomy Picture of the Day</h2>
                     <img src={data.url} className='w-1/2 h-1/2' />

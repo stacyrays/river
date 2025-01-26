@@ -57,7 +57,7 @@ export default function Contact() {
         <div className={styles.subComponentContainer}>
             <h1 className={styles.h1}>Contact River Today</h1>
             <h2 className="lg:text-2xl md:text-xl sm:text-l sm:text-left xs:text-2xl font-bold font-[family-name:var(--font-geist-mono)] mb-5 dark:text-sky-700 mt-5">Email any questions or schedule a consultation at:</h2>
-            <p>rivernlp@gmail.com</p>
+            <p>info.rivernlp@gmail.com</p>
         </div>
     </div>
     )

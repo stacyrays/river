@@ -33,8 +33,10 @@ const Services: React.FC = () => {
         <div className={styles.componentContainer}>
             <div className={styles.subComponentContainer}>
                 <h1 className={styles.h1}>Services</h1>
-                <p>Contrary to popular belief...</p>
-                <div className={styles.innerContent}>
+                <p className="mb-5">River's office is located in Brisbane, California. Sessions are offered in the office, at the client's home, or over Zoom.</p>
+                <p className="mb-5">Typically we start with a half hour consultation session over the phone or over Zoom, in which we determine your coaching plan. </p>
+                <p className="mb-5">Most changes are made in one session, though some, such as quitting smoking or nail biting, may require multiple sessions.</p>
+                {/* <div className={styles.innerContent}>
                     <h2 className={styles.h3}>Favorite Meditation Videos</h2>
                     <iframe 
                         // width="560"
@@ -57,7 +59,7 @@ const Services: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div> */}
             </div>
         </div>
     );

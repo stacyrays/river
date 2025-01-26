@@ -6,24 +6,24 @@ const HabitsContainer = () => {
     const habitItems = [
         {
             icon: 'SmokingIcon',
-            title: 'Smoking',
-            description: 'Do you struggle with quitting? A few sessions show high success rate to finish for good.'
+            title: 'Overcome unwanted habits',
+            description: 'Do you struggle with habits that interferes with your health, relationships, or career? NLP is a powerful tool to help you break free.'
         },
         {
             icon: 'FastFoodIcon',
-            title: 'Over-eating',
-            description: 'Hard to resist grabbing something out of the fridge when you feel anxious?  A few sessions show high success rate to finish for good.'
+            title: 'Eliminate phobias',
+            description: 'Do you have a phobia of flying? Spiders? Heights? Public speaking? NLP is a speedy way to free yourself of these fears and phobias.'
         },
         {
             icon: 'CoffeeIcon',
-            title: 'Caffeine',
-            description: 'Do you struggle sleeping well and feeling anxious? Might be time to give up or lighten up caffeine.'
+            title: 'Create new behaviors',
+            description: 'Remove blocks to success, increase confidence, become more resourceful when faced with challenges and expand your capacity for bliss and well-being.'
         }
     ]
     return (
         <>
             <div className="container">
-                <h2 className="hph2">Our treatment process helps squash unhealthy habits like these:</h2>
+                <h2 className="hph2">River facilitates shifts in consciousness to create lasting change.</h2>
                 <div className="habit-items">
                     {habitItems.map((item) => (<HabitsItem icon={item.icon} title={item.title} description={item.description} key={item.title} />))}
                 </div>
