@@ -1,6 +1,6 @@
-import SmokingIcon from '../../../public/images/svgs/SmokingIcon';
-import FastFoodIcon from '../../../public/images/svgs/FastFoodIcon';
-import CoffeeIcon from '../../../public/images/svgs/CoffeeIcon';
+// import SmokingIcon from '../../../public/images/svgs/SmokingIcon';
+// import FastFoodIcon from '../../../public/images/svgs/FastFoodIcon';
+// import CoffeeIcon from '../../../public/images/svgs/CoffeeIcon';
 import './styles.css';
 
 interface HabitsItemProps {
@@ -9,19 +9,19 @@ interface HabitsItemProps {
     description: string,
 }
 
-const HabitsItem: React.FC<HabitsItemProps> = ({icon, title, description}) => {
-    const habitIcon = () => {
-        switch (icon) {
-            case 'SmokingIcon':
-                return <SmokingIcon />;
-            case 'FastFoodIcon':
-                return <FastFoodIcon />;
-            case 'CoffeeIcon':
-                return <CoffeeIcon />;
-            default:
-                return <SmokingIcon />;
-        }
-    }
+const HabitsItem: React.FC<HabitsItemProps> = ({title, description}) => {
+    // const habitIcon = () => {
+    //     switch (icon) {
+    //         case 'SmokingIcon':
+    //             return <SmokingIcon />;
+    //         case 'FastFoodIcon':
+    //             return <FastFoodIcon />;
+    //         case 'CoffeeIcon':
+    //             return <CoffeeIcon />;
+    //         default:
+    //             return <SmokingIcon />;
+    //     }
+    // }
     return (
         <div className="flex flex-col dark:bg-white basis-1/3 rounded-3xl border mx-5 px-6 pb-6 mb-5">
             {/* {habitIcon()} */}

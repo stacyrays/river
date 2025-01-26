@@ -1,5 +1,6 @@
 import React from 'react';
 import HabitsItem from './HabitsItem';
+import Link from 'next/link';
 import './styles.css';
 
 const HabitsContainer = () => {
@@ -23,7 +24,7 @@ const HabitsContainer = () => {
     return (
         <>
             <div className="container">
-                <h2 className="hph2">River facilitates shifts in consciousness to create lasting change.</h2>
+                <h2 className="hph2">River uses hypnosis and <Link className={"py-2 px-3 dark:text-blue md:p-0 hover:text-sky-900 transition-colors text-decoration-line: underline" } href={'/how'}>NLP</Link> to facilitate lasting change.</h2>
                 <div className="habit-items">
                     {habitItems.map((item) => (<HabitsItem icon={item.icon} title={item.title} description={item.description} key={item.title} />))}
                 </div>

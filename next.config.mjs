@@ -7,7 +7,7 @@ const nextConfig = {
   },
   assetPrefix: isProd ? 'https://stacyrays.github.io/river/' : '',
   basePath: isProd ? '/river' : '',
-  // output: 'export'
+  output: 'export'
 };
 
 export default nextConfig;
